@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 py-8 px-8 text-center relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 py-8 px-4 sm:px-8 text-center relative overflow-hidden">
       {/* Background Pattern - Big Dot Patches */}
       <div className="absolute inset-0 opacity-15">
         <div className="absolute top-10 left-10 w-32 h-32 bg-gray-300 rounded-full"></div>
@@ -14,8 +14,8 @@ function Footer() {
         <div className="absolute bottom-1/3 left-1/3 w-24 h-24 bg-gray-300 rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-6 relative z-10">
-        <div className="text-center md:text-left">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 mb-6 relative z-10">
+        <div className="text-center md:text-left px-2">
           <h3 className="text-lg font-semibold mb-3 text-transparent bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text font-serif">Infinity Stories by Sonal</h3>
           <p className="text-gray-800 leading-relaxed text-sm">
             Capturing life's precious moments through the lens of creativity. 
@@ -23,7 +23,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left px-2">
           <h3 className="text-lg font-semibold mb-3 text-transparent bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text font-serif">Services</h3>
           <a href="/work" className="text-gray-800 no-underline block mb-1.5 transition-all duration-300 hover:text-gray-700 hover:translate-x-1 text-sm">Portrait Photography</a>
           <a href="/work" className="text-gray-800 no-underline block mb-1.5 transition-all duration-300 hover:text-gray-700 hover:translate-x-1 text-sm">Wedding Photography</a>
@@ -32,7 +32,7 @@ function Footer() {
           <a href="/work" className="text-gray-800 no-underline block mb-1.5 transition-all duration-300 hover:text-gray-700 hover:translate-x-1 text-sm">Commercial Shoots</a>
         </div>
 
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left px-2">
           <h3 className="text-lg font-semibold mb-3 text-transparent bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text font-serif">Contact Info</h3>
           <div className="text-gray-800 mb-1.5 flex items-center gap-2 hover:text-gray-700 transition-colors duration-300 text-sm">
             <span></span>
@@ -48,7 +48,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left px-2">
           <h3 className="text-lg font-semibold mb-3 text-transparent bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text font-serif">Follow Us</h3>
           <div className="flex gap-3 justify-center md:justify-start mt-2">
             <a 
@@ -64,18 +64,18 @@ function Footer() {
       </div>
 
       <div className="border-t border-gray-200 pt-4 flex justify-center items-center gap-4 relative z-10">
-        <div className="text-gray-700 text-sm text-center">
+        <div className="text-gray-700 text-xs sm:text-sm text-center px-4">
           © 2025 <span className="mx-2 text-transparent bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text font-semibold font-serif">Infinity Stories by Sonal</span>. All rights reserved.
         </div>
       </div>
 
       {/* Floating Elements - Big Animated Dots */}
-      <div className="absolute top-1/4 left-10 w-8 h-8 bg-gray-500 rounded-full opacity-60 animate-pulse"></div>
-      <div className="absolute top-1/3 right-20 w-12 h-12 bg-gray-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
-      <div className="absolute bottom-1/4 left-20 w-6 h-6 bg-gray-600 rounded-full opacity-60 animate-pulse delay-2000"></div>
-      <div className="absolute bottom-1/3 right-10 w-10 h-10 bg-gray-500 rounded-full opacity-40 animate-pulse delay-3000"></div>
-      <div className="absolute top-1/2 right-1/4 w-14 h-14 bg-gray-300 rounded-full opacity-30 animate-pulse delay-4000"></div>
-      <div className="absolute bottom-1/2 left-1/4 w-8 h-8 bg-gray-400 rounded-full opacity-50 animate-pulse delay-5000"></div>
+      <div className="absolute top-1/4 left-6 sm:left-10 w-6 sm:w-8 h-6 sm:h-8 bg-gray-500 rounded-full opacity-60 animate-pulse"></div>
+      <div className="absolute top-1/3 right-10 sm:right-20 w-10 sm:w-12 h-10 sm:h-12 bg-gray-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
+      <div className="absolute bottom-1/4 left-10 sm:left-20 w-5 sm:w-6 h-5 sm:h-6 bg-gray-600 rounded-full opacity-60 animate-pulse delay-2000"></div>
+      <div className="absolute bottom-1/3 right-6 sm:right-10 w-8 sm:w-10 h-8 sm:h-10 bg-gray-500 rounded-full opacity-40 animate-pulse delay-3000"></div>
+      <div className="absolute top-1/2 right-1/4 w-10 sm:w-14 h-10 sm:h-14 bg-gray-300 rounded-full opacity-30 animate-pulse delay-4000"></div>
+      <div className="absolute bottom-1/2 left-1/4 w-6 sm:w-8 h-6 sm:h-8 bg-gray-400 rounded-full opacity-50 animate-pulse delay-5000"></div>
     </footer>
   )
 }

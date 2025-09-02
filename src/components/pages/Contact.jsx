@@ -73,30 +73,30 @@ Looking forward to hearing from you!`
       </div>
 
       {/* Header Section */}
-      <div className="relative z-10 pt-20 pb-12 text-center px-8">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      <div className="relative z-10 pt-16 sm:pt-20 pb-10 sm:pb-12 text-center px-4 sm:px-8">
+        <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
           <span className="text-transparent bg-gradient-to-r from-gray-700 via-gray-600 to-gray-800 bg-clip-text drop-shadow-lg">
             Contact Us
           </span>
         </h1>
         
-        <div className="flex items-center justify-center mb-8">
+        <div className="flex items-center justify-center mb-6 sm:mb-8">
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
           <div className="mx-4 text-gray-600 text-2xl">↔</div>
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </div>
 
-        <p className="text-lg md:text-xl leading-relaxed text-gray-800 max-w-3xl mx-auto">
+        <p className="text-base md:text-xl leading-relaxed text-gray-800 max-w-3xl mx-auto">
           Ready to capture your special moments? Send us a message on WhatsApp to discuss your photography and cinematography needs.
         </p>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg">
             <h2 className="text-2xl font-bold mb-6 text-gray-800">Send us a WhatsApp Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -197,7 +197,7 @@ Looking forward to hearing from you!`
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-gray-800">Get in Touch</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -238,7 +238,7 @@ Looking forward to hearing from you!`
               </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-gray-800">Business Hours</h2>
               <div className="space-y-3">
                 <div className="flex justify-between">
@@ -256,7 +256,7 @@ Looking forward to hearing from you!`
               </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-gray-800">Follow Us</h2>
               <div className="flex gap-4">
                 <a 

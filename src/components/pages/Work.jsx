@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import image1 from '../../assets/1.jpg'
 import image2 from '../../assets/2.jpg'
 import image3 from '../../assets/3.jpg'
@@ -53,6 +53,7 @@ function Work() {
   const [isReelsOpen, setIsReelsOpen] = useState(false)
   const [isImageOpen, setIsImageOpen] = useState(false)
   const [imageIndex, setImageIndex] = useState(0)
+  const openedByUserRef = useRef(false)
 
   const showNextImage = () => {
     setImageIndex((idx) => (idx + 1) % images.length)
@@ -123,6 +124,7 @@ function Work() {
   }, [isReelsOpen])
 
   const openReel = (index) => {
+    openedByUserRef.current = true
     setIsReelsOpen(true)
     // Small timeout to ensure modal content is mounted before scrolling
     setTimeout(() => {
@@ -231,20 +233,20 @@ function Work() {
       </div>
 
       {/* Header Section */}
-      <div className="relative z-10 pt-20 pb-12 text-center px-8">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      <div className="relative z-10 pt-16 sm:pt-20 pb-10 sm:pb-12 text-center px-4 sm:px-8">
+        <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
           <span className="text-transparent bg-gradient-to-r from-gray-700 via-gray-600 to-gray-800 bg-clip-text drop-shadow-lg">
             Portfolio
           </span>
         </h1>
         
-        <div className="flex items-center justify-center mb-8">
+        <div className="flex items-center justify-center mb-6 sm:mb-8">
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
           <div className="mx-4 text-gray-600 text-2xl">↔</div>
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </div>
 
-        <p className="text-lg md:text-xl leading-relaxed text-gray-800 max-w-3xl mx-auto">
+        <p className="text-base md:text-xl leading-relaxed text-gray-800 max-w-3xl mx-auto">
           A collection of moments captured through the lens of creativity. 
           Each image and video tells a unique story, preserving memories that last forever.
         </p>
@@ -281,7 +283,7 @@ function Work() {
       </div>
 
       {/* Portfolio Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pb-16 sm:pb-20">
         {activeTab === 'captures' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {images.map((image, index) => (
@@ -323,6 +325,12 @@ function Work() {
                     playsInline
                     preload="metadata"
                     onClick={(e) => { e.stopPropagation(); openReel(index) }}
+                    onLoadedMetadata={(e) => {
+                      // Try to autoplay when visible on mobile
+                      if (openedByUserRef.current && e.currentTarget.paused) {
+                        e.currentTarget.play().catch(() => {})
+                      }
+                    }}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -343,7 +351,7 @@ function Work() {
           {/* Close button */}
           <button
             onClick={closeReels}
-            className="absolute top-4 right-4 z-[1000] w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center"
+            className="absolute top-3 sm:top-4 right-3 sm:right-4 z-[1000] w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center"
             aria-label="Close"
           >
             ×
@@ -357,7 +365,7 @@ function Work() {
                 key={idx}
                 className="h-screen w-full flex items-center justify-center snap-start"
               >
-                <div className="w-[min(450px,90vw)] h-[min(90vh,800px)] bg-black rounded-2xl overflow-hidden shadow-2xl">
+                <div className="w-[min(450px,92vw)] h-[min(90vh,800px)] bg-black rounded-2xl overflow-hidden shadow-2xl relative">
                   <video
                     src={video.src}
                     id={`reel-video-${idx}`}
@@ -368,11 +376,15 @@ function Work() {
                     autoPlay
                     controls={false}
                     preload="metadata"
-                    onClick={() => toggleMute(idx)}
+                    onLoadedMetadata={(e) => {
+                      // iOS requires explicit play after load even with autoplay
+                      const el = e.currentTarget
+                      if (el.paused) el.play().catch(() => {})
+                    }}
                   />
                   {/* Right-side controls removed per request */}
                   {/* Caption */}
-                  <div className="absolute left-4 bottom-4 right-20 text-white select-none pointer-events-none">
+                  <div className="absolute left-3 sm:left-4 bottom-3 sm:bottom-4 right-16 sm:right-20 text-white select-none pointer-events-none">
                     <h3 className="font-semibold">Frames</h3>
                     <p className="text-sm text-gray-200">Cinematography by Sonal</p>
                   </div>
@@ -387,7 +399,7 @@ function Work() {
       {isImageOpen && (
         <div className="fixed inset-0 z-[998] bg-black/70 backdrop-blur-md" onClick={() => setIsImageOpen(false)}>
           {/* Close */}
-          <button onClick={() => setIsImageOpen(false)} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center">×</button>
+          <button onClick={() => setIsImageOpen(false)} className="absolute top-3 sm:top-4 right-3 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center">×</button>
 
           {/* Caption on left */}
           <div className="absolute left-4 bottom-4 right-20 text-white select-none pointer-events-none">
@@ -403,20 +415,20 @@ function Work() {
                 alt={images[imageIndex]?.alt}
                 className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
               />
-              <button onClick={(e) => { e.stopPropagation(); showPrevImage() }} className="absolute -left-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center">‹</button>
-              <button onClick={(e) => { e.stopPropagation(); showNextImage() }} className="absolute -right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center">›</button>
+              <button onClick={(e) => { e.stopPropagation(); showPrevImage() }} className="flex absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl items-center justify-center">‹</button>
+              <button onClick={(e) => { e.stopPropagation(); showNextImage() }} className="flex absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl items-center justify-center">›</button>
             </div>
           </div>
         </div>
       )}
 
       {/* Floating Elements - Big Animated Dots */}
-      <div className="absolute top-1/4 left-10 w-8 h-8 bg-gray-500 rounded-full opacity-60 animate-pulse"></div>
-      <div className="absolute top-1/3 right-20 w-12 h-12 bg-gray-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
-      <div className="absolute bottom-1/4 left-20 w-6 h-6 bg-gray-600 rounded-full opacity-60 animate-pulse delay-2000"></div>
-      <div className="absolute bottom-1/3 right-10 w-10 h-10 bg-gray-500 rounded-full opacity-40 animate-pulse delay-3000"></div>
-      <div className="absolute top-1/2 right-1/4 w-14 h-14 bg-gray-300 rounded-full opacity-30 animate-pulse delay-4000"></div>
-      <div className="absolute bottom-1/2 left-1/4 w-8 h-8 bg-gray-400 rounded-full opacity-50 animate-pulse delay-5000"></div>
+      <div className="absolute top-1/4 left-6 sm:left-10 w-6 sm:w-8 h-6 sm:h-8 bg-gray-500 rounded-full opacity-60 animate-pulse"></div>
+      <div className="absolute top-1/3 right-10 sm:right-20 w-10 sm:w-12 h-10 sm:h-12 bg-gray-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
+      <div className="absolute bottom-1/4 left-10 sm:left-20 w-5 sm:w-6 h-5 sm:h-6 bg-gray-600 rounded-full opacity-60 animate-pulse delay-2000"></div>
+      <div className="absolute bottom-1/3 right-6 sm:right-10 w-8 sm:w-10 h-8 sm:h-10 bg-gray-500 rounded-full opacity-40 animate-pulse delay-3000"></div>
+      <div className="absolute top-1/2 right-1/4 w-10 sm:w-14 h-10 sm:h-14 bg-gray-300 rounded-full opacity-30 animate-pulse delay-4000"></div>
+      <div className="absolute bottom-1/2 left-1/4 w-6 sm:w-8 h-6 sm:h-8 bg-gray-400 rounded-full opacity-50 animate-pulse delay-5000"></div>
     </div>
   )
 }

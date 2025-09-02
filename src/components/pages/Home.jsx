@@ -31,12 +31,12 @@ function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center px-8">
+      <div className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center px-4 sm:px-8">
         {/* Logo Section */}
         <div className="mb-12">
           <div className="relative">
             {/* Infinity Symbol */}
-            <div className="text-8xl md:text-9xl mb-6 text-transparent bg-gradient-to-r from-gray-600 via-gray-500 to-gray-700 bg-clip-text drop-shadow-lg">
+            <div className="text-7xl md:text-9xl mb-6 text-transparent bg-gradient-to-r from-gray-600 via-gray-500 to-gray-700 bg-clip-text drop-shadow-lg">
               ∞
             </div>
             
@@ -50,35 +50,35 @@ function Home() {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
           <span className="text-transparent bg-gradient-to-r from-gray-700 via-gray-600 to-gray-800 bg-clip-text drop-shadow-lg">
             Infinity Stories
           </span>
         </h1>
         
         {/* Divider with Arrow */}
-        <div className="flex items-center justify-center mb-8">
+        <div className="flex items-center justify-center mb-6 sm:mb-8">
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
           <div className="mx-4 text-gray-600 text-2xl">↔</div>
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </div>
 
         {/* Subtitle */}
-        <h2 className="text-xl md:text-2xl font-light mb-8 tracking-widest uppercase text-gray-700 font-serif">
+        <h2 className="text-lg md:text-2xl font-light mb-8 tracking-widest uppercase text-gray-700 font-serif">
           Photography & Cinematography
         </h2>
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl mb-12 leading-relaxed text-gray-800 max-w-3xl mx-auto">
+        <p className="text-base md:text-xl mb-12 leading-relaxed text-gray-800 max-w-3xl mx-auto">
           Capturing life's most precious moments through the lens of creativity. 
           From intimate portraits to cinematic storytelling, every frame tells a unique story 
           that transcends time and space.
         </p>
         
         {/* Buttons */}
-        <div className="flex gap-6 justify-center flex-wrap">
+        <div className="flex gap-4 sm:gap-6 justify-center flex-wrap">
           <button 
-            className="group relative px-8 py-4 text-base font-semibold rounded-full cursor-pointer transition-all duration-500 uppercase tracking-wider overflow-hidden shadow-lg"
+            className="group relative px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-full cursor-pointer transition-all duration-500 uppercase tracking-wider overflow-hidden shadow-lg"
             onClick={handlePortfolioClick}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full transition-all duration-500 group-hover:scale-105"></span>
@@ -86,7 +86,7 @@ function Home() {
           </button>
           
           <button 
-            className="group relative px-8 py-4 text-base font-semibold rounded-full cursor-pointer transition-all duration-500 uppercase tracking-wider overflow-hidden border-2 border-gray-600 hover:border-gray-700 shadow-lg"
+            className="group relative px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-full cursor-pointer transition-all duration-500 uppercase tracking-wider overflow-hidden border-2 border-gray-600 hover:border-gray-700 shadow-lg"
             onClick={handleContactClick}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full transition-all duration-500 group-hover:scale-105 opacity-0 group-hover:opacity-100"></span>
@@ -103,12 +103,12 @@ function Home() {
       </div>
 
       {/* Floating Elements - Big Animated Dots */}
-      <div className="absolute top-1/4 left-10 w-8 h-8 bg-gray-500 rounded-full opacity-60 animate-pulse"></div>
-      <div className="absolute top-1/3 right-20 w-12 h-12 bg-gray-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
-      <div className="absolute bottom-1/4 left-20 w-6 h-6 bg-gray-600 rounded-full opacity-60 animate-pulse delay-2000"></div>
-      <div className="absolute bottom-1/3 right-10 w-10 h-10 bg-gray-500 rounded-full opacity-40 animate-pulse delay-3000"></div>
-      <div className="absolute top-1/2 right-1/4 w-14 h-14 bg-gray-300 rounded-full opacity-30 animate-pulse delay-4000"></div>
-      <div className="absolute bottom-1/2 left-1/4 w-8 h-8 bg-gray-400 rounded-full opacity-50 animate-pulse delay-5000"></div>
+      <div className="absolute top-1/4 left-6 sm:left-10 w-6 sm:w-8 h-6 sm:h-8 bg-gray-500 rounded-full opacity-60 animate-pulse"></div>
+      <div className="absolute top-1/3 right-10 sm:right-20 w-10 sm:w-12 h-10 sm:h-12 bg-gray-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
+      <div className="absolute bottom-1/4 left-10 sm:left-20 w-5 sm:w-6 h-5 sm:h-6 bg-gray-600 rounded-full opacity-60 animate-pulse delay-2000"></div>
+      <div className="absolute bottom-1/3 right-6 sm:right-10 w-8 sm:w-10 h-8 sm:h-10 bg-gray-500 rounded-full opacity-40 animate-pulse delay-3000"></div>
+      <div className="absolute top-1/2 right-1/4 w-10 sm:w-14 h-10 sm:h-14 bg-gray-300 rounded-full opacity-30 animate-pulse delay-4000"></div>
+      <div className="absolute bottom-1/2 left-1/4 w-6 sm:w-8 h-6 sm:h-8 bg-gray-400 rounded-full opacity-50 animate-pulse delay-5000"></div>
     </div>
   )
 }
